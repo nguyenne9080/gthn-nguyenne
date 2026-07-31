@@ -285,6 +285,272 @@
   .qa-vi{font-size:.86rem !important}
 }
 
+
+/* ═══ SỬA GIAO DIỆN ĐIỆN THOẠI ═══ */
+.vocab-grid{
+  align-items:stretch;
+}
+.vocab-card{
+  min-width:0;
+  overflow:hidden;
+}
+.vocab-card .han{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:100%;
+  min-height:108px;
+  padding:8px 6px;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:keep-all;
+  text-align:center;
+  line-height:1.05 !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+.vocab-card .han.font-zh{
+  font-size:clamp(2.6rem,8vw,4rem) !important;
+}
+.vocab-card .han img,
+.vocab-card img{
+  max-width:100%;
+  height:auto;
+}
+
+@media(max-width:700px){
+  .container{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .vocab-grid{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  .vocab-card{
+    width:100% !important;
+    max-width:100% !important;
+    padding:16px 14px !important;
+    border-radius:16px;
+  }
+
+  .vocab-card .han{
+    min-height:118px;
+    font-size:3.6rem !important;
+    padding:10px 8px;
+  }
+
+  .vocab-card .py{
+    font-size:1.12rem !important;
+    margin-top:8px;
+  }
+
+  .vocab-card .viet{
+    font-size:1.08rem !important;
+    line-height:1.45;
+  }
+
+  .vocab-card .btn,
+  .vocab-card button{
+    max-width:100%;
+    white-space:normal;
+    line-height:1.3;
+  }
+}
+
+@media(min-width:701px) and (max-width:980px){
+  .vocab-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .vocab-card .han{
+    font-size:3.25rem !important;
+  }
+}
+
+
+/* ═══ BẢN SỬA MOBILE CHÍNH XÁC: KHÔNG CHỒNG CHỮ + ĐỒNG NHẤT FONT ═══ */
+html,body,
+button,input,textarea,select,
+.vocab-card,.vocab-card *{
+  font-family:Arial,'Segoe UI',sans-serif;
+  box-sizing:border-box;
+}
+
+/* Chỉ các phần chữ Hán thật mới dùng KaiTi */
+.han,
+.font-zh,
+.zh-run,
+.qa-zh,
+.flip-front .han,
+.answer-input{
+  font-family:'KaiTi','STKaiti','Kaiti SC','楷体',serif !important;
+  font-weight:400 !important;
+  font-style:normal !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+
+/* Pinyin và tiếng Việt luôn Arial, không bị lẫn KaiTi */
+.py,.hv,.viet,.pos-badge,.radical-badge,
+.qa-py,.qa-vi,.font-vi{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+
+.vocab-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.han-row{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  max-width:100% !important;
+  gap:6px !important;
+  margin:8px 0 !important;
+  overflow:hidden !important;
+}
+
+/* Ô nét viết phải co theo chiều rộng thẻ, không giữ cố định 104px */
+.hanzi-target{
+  flex:1 1 0 !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:104px !important;
+  aspect-ratio:1/1 !important;
+  height:auto !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+/* SVG của HanziWriter luôn nằm gọn trong ô */
+.hanzi-target svg{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+}
+
+/* Nội dung các thẻ cân hàng, không bị lệch trái/phải */
+.vocab-card .emoji,
+.vocab-card .py,
+.vocab-card .hv,
+.vocab-card .viet,
+.vocab-card .pos-badge,
+.vocab-card .radical-badge{
+  width:100%;
+  text-align:center;
+}
+
+.vocab-card .py{
+  font-size:1.08rem !important;
+  line-height:1.35 !important;
+  margin-top:7px !important;
+}
+.vocab-card .hv{
+  font-size:.98rem !important;
+  line-height:1.4 !important;
+}
+.vocab-card .viet{
+  font-size:1.08rem !important;
+  line-height:1.45 !important;
+  font-weight:700 !important;
+  margin:10px 0 !important;
+}
+.vocab-card .radical-badge{
+  font-size:.94rem !important;
+  line-height:1.4 !important;
+  white-space:normal !important;
+}
+.vocab-card button{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+  white-space:normal !important;
+  line-height:1.25 !important;
+}
+
+/* Điện thoại: vẫn giữ 2 cột nhưng mọi thành phần tự co */
+@media(max-width:900px){
+  .container{
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+
+  .vocab-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+
+  .vocab-card{
+    padding:13px 9px !important;
+    border-radius:15px !important;
+  }
+
+  .han-row{
+    gap:4px !important;
+  }
+
+  .hanzi-target{
+    max-width:88px !important;
+  }
+
+  .vocab-card .btn,
+  .vocab-card button{
+    max-width:100% !important;
+    padding:9px 11px !important;
+    font-size:.92rem !important;
+  }
+
+  .vocab-card .viet{
+    font-size:1rem !important;
+  }
+
+  .vocab-card .radical-badge{
+    font-size:.88rem !important;
+  }
+}
+
+/* Màn hình rất hẹp: giảm ô nét viết thêm để cụm 2 chữ không chồng */
+@media(max-width:430px){
+  .vocab-grid{
+    gap:8px !important;
+  }
+
+  .vocab-card{
+    padding:12px 7px !important;
+  }
+
+  .hanzi-target{
+    max-width:76px !important;
+  }
+
+  .vocab-card .btn,
+  .vocab-card button{
+    padding:8px 8px !important;
+    font-size:.86rem !important;
+  }
+
+  .vocab-card .py{
+    font-size:1rem !important;
+  }
+
+  .vocab-card .hv,
+  .vocab-card .viet{
+    font-size:.94rem !important;
+  }
+}
+
 </style>
 </head>
 <body>
