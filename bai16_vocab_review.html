@@ -551,12 +551,92 @@ button,input,textarea,select,
   }
 }
 
+
+/* ═══ THANH ĐIỀU HƯỚNG BÀI HỌC ═══ */
+.lesson-nav{
+  max-width:1100px;
+  margin:10px auto 14px;
+  padding:0 16px;
+  display:grid;
+  grid-template-columns:auto minmax(170px,1fr) auto;
+  gap:8px;
+  align-items:center;
+  font-family:Arial,'Segoe UI',sans-serif;
+}
+.lesson-nav a,
+.lesson-nav select{
+  min-height:42px;
+  border-radius:12px;
+  border:2px solid #f2a0b7;
+  background:#fff;
+  color:#7a2b63;
+  font-family:Arial,'Segoe UI',sans-serif;
+  font-size:.96rem;
+}
+.lesson-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 13px;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+.lesson-nav a:hover{
+  background:#fff0f4;
+}
+.lesson-nav select{
+  width:100%;
+  padding:8px 12px;
+  outline:none;
+}
+.lesson-nav .disabled-nav{
+  opacity:.35;
+  pointer-events:none;
+}
+.lesson-nav-home{
+  max-width:1100px;
+  margin:0 auto 10px;
+  padding:0 16px;
+  text-align:center;
+  font-family:Arial,'Segoe UI',sans-serif;
+}
+.lesson-nav-home a{
+  color:#7a2b63;
+  text-decoration:none;
+  font-weight:700;
+}
+@media(max-width:600px){
+  .lesson-nav{
+    grid-template-columns:1fr 1fr;
+    padding:0 10px;
+  }
+  .lesson-nav select{
+    grid-column:1 / -1;
+    grid-row:1;
+  }
+  .lesson-nav a{
+    font-size:.9rem;
+    padding:8px 6px;
+  }
+}
+
 </style>
 </head>
 <body>
-<div style="max-width:1100px;margin:10px auto 0;padding:0 16px;font-family:Arial,sans-serif">
-  <a href="index.html" style="color:#7030A0;text-decoration:none;font-weight:bold">← Về trang học tập</a>
+
+<div class="lesson-nav-home">
+  <a href="index.html">⌂ Về trang học tập</a>
 </div>
+<nav class="lesson-nav" aria-label="Điều hướng bài học">
+  <a href="bai15_vocab_review.html">← Bài 15</a>
+  <select aria-label="Chọn bài khác" onchange="if(this.value) location.href=this.value">
+    <option value="">📚 Chọn bài ôn từ vựng khác</option><option value="bai1_vocab_review.html">Bài 1</option><option value="bai2_vocab_review.html">Bài 2</option><option value="bai3_vocab_review.html">Bài 3</option><option value="bai4_vocab_review.html">Bài 4</option><option value="bai5_vocab_review.html">Bài 5</option><option value="bai6_vocab_review.html">Bài 6</option><option value="bai7_vocab_review.html">Bài 7</option><option value="bai8_vocab_review.html">Bài 8</option><option value="bai9_vocab_review.html">Bài 9</option><option value="bai10_vocab_review.html">Bài 10</option><option value="bai11_vocab_review.html">Bài 11</option><option value="bai12_vocab_review.html">Bài 12</option><option value="bai13_vocab_review.html">Bài 13</option><option value="bai14_vocab_review.html">Bài 14</option><option value="bai15_vocab_review.html">Bài 15</option><option value="bai16_vocab_review.html" selected>Bài 16</option><option value="bai17_vocab_review.html">Bài 17</option><option value="bai18_vocab_review.html">Bài 18</option><option value="bai19_vocab_review.html">Bài 19</option><option value="bai20_vocab_review.html">Bài 20</option><option value="bai21_vocab_review.html">Bài 21</option><option value="bai22_vocab_review.html">Bài 22</option><option value="bai23_vocab_review.html">Bài 23</option><option value="bai24_vocab_review.html">Bài 24</option><option value="bai25_vocab_review.html">Bài 25</option>
+  </select>
+  <a href="bai17_vocab_review.html">Bài 17 →</a>
+</nav>
+
+
 <div class="container">
   <header>
     <h1 id="topic-title">Ôn từ vựng · Bài 16 – 你常去图书馆吗？ (Bạn có thường đến thư viện không?)<span class="level-badge">33 từ mới — trạng ngữ thời gian, 还是/或者, 跟…一起…, tần suất</span></h1>
@@ -1147,5 +1227,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
 })();
 
 </script>
+
+<div class="lesson-nav-home">
+  <a href="index.html">⌂ Về trang học tập</a>
+</div>
+<nav class="lesson-nav" aria-label="Điều hướng bài học">
+  <a href="bai15_vocab_review.html">← Bài 15</a>
+  <select aria-label="Chọn bài khác" onchange="if(this.value) location.href=this.value">
+    <option value="">📚 Chọn bài ôn từ vựng khác</option><option value="bai1_vocab_review.html">Bài 1</option><option value="bai2_vocab_review.html">Bài 2</option><option value="bai3_vocab_review.html">Bài 3</option><option value="bai4_vocab_review.html">Bài 4</option><option value="bai5_vocab_review.html">Bài 5</option><option value="bai6_vocab_review.html">Bài 6</option><option value="bai7_vocab_review.html">Bài 7</option><option value="bai8_vocab_review.html">Bài 8</option><option value="bai9_vocab_review.html">Bài 9</option><option value="bai10_vocab_review.html">Bài 10</option><option value="bai11_vocab_review.html">Bài 11</option><option value="bai12_vocab_review.html">Bài 12</option><option value="bai13_vocab_review.html">Bài 13</option><option value="bai14_vocab_review.html">Bài 14</option><option value="bai15_vocab_review.html">Bài 15</option><option value="bai16_vocab_review.html" selected>Bài 16</option><option value="bai17_vocab_review.html">Bài 17</option><option value="bai18_vocab_review.html">Bài 18</option><option value="bai19_vocab_review.html">Bài 19</option><option value="bai20_vocab_review.html">Bài 20</option><option value="bai21_vocab_review.html">Bài 21</option><option value="bai22_vocab_review.html">Bài 22</option><option value="bai23_vocab_review.html">Bài 23</option><option value="bai24_vocab_review.html">Bài 24</option><option value="bai25_vocab_review.html">Bài 25</option>
+  </select>
+  <a href="bai17_vocab_review.html">Bài 17 →</a>
+</nav>
+
 </body>
 </html>
