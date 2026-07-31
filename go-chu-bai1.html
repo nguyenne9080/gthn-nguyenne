@@ -70,9 +70,9 @@ table.teacher td.tname{text-align:left;font-weight:bold;color:var(--nn-purple);}
 .progress-txt{text-align:center;color:var(--nn-text-soft);font-size:.85em;margin-bottom:16px;font-family:Arial,sans-serif;}
 
 .prompt-card{text-align:center;padding:24px 10px;}
-.prompt-hint{color:var(--nn-text-soft);font-size:.95em;margin-bottom:8px;font-family:Arial,sans-serif;}
-.prompt-copy-zh{font-family:'KaiTi','STKaiti',serif;font-size:2.4em;color:var(--nn-purple);margin-bottom:10px;line-height:1.3;}
-.prompt-py{color:var(--nn-blue);font-size:1.3em;font-weight:bold;margin-bottom:4px;font-family:Arial,sans-serif;}
+.prompt-hint{color:var(--nn-text-soft);font-size:1.05em;line-height:1.45;margin-bottom:9px;font-family:Arial,sans-serif;}
+.prompt-copy-zh{font-family:'KaiTi','STKaiti',serif;font-size:2.55em;color:var(--nn-purple);margin-bottom:10px;line-height:1.3;}
+.prompt-py{color:var(--nn-blue);font-size:1.4em;line-height:1.35;font-weight:bold;margin-bottom:5px;font-family:Arial,sans-serif;}
 .prompt-sentence-meaning{color:var(--nn-text-soft);font-size:.95em;margin-bottom:8px;font-family:Arial,sans-serif;font-style:italic;}
 .prompt-extra{color:#999;font-size:.85em;margin-bottom:18px;font-style:italic;font-family:Arial,sans-serif;}
 .type-input{font-family:'KaiTi','STKaiti',serif;font-size:1.8em;text-align:center;width:100%;max-width:500px;padding:14px;border:2px solid var(--nn-pink);border-radius:12px;outline:none;}
@@ -120,6 +120,27 @@ table.history tr:nth-child(even){background:var(--nn-pink-soft);}
 footer{text-align:center;color:#bbb;font-size:.8em;margin-top:24px;font-family:Arial,sans-serif;}
 .empty-note{text-align:center;color:#aaa;padding:14px;font-size:.9em;font-family:Arial,sans-serif;}
 .link-btn{background:none;border:none;color:var(--nn-purple);text-decoration:underline;cursor:pointer;font-family:Arial,sans-serif;font-size:.9em;}
+
+/* Bản sửa: từ vựng luôn hiện chữ Hán rõ ràng */
+.word-hanzi{
+  font-family:'KaiTi','STKaiti','Kaiti SC','楷体',serif !important;
+  font-size:2.35rem;
+  line-height:1.3;
+  color:var(--nn-purple);
+  margin-bottom:8px;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+.word-meta{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+  font-size:1rem;
+  line-height:1.45;
+  color:var(--nn-text-soft);
+}
+.prompt-py{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+}
+
 </style>
 </head>
 <body>
@@ -733,7 +754,8 @@ function nextItem(){
 
   const copyMode = (sessionLevel === 2);
   const revealWord = (currentItem.type === 'word' && currentItem.revealHanzi);
-  const showHanzi = copyMode || revealWord;
+  // Từ vựng luôn hiện chữ Hán để sinh viên nhận diện đúng chữ khi chọn bộ gõ.
+  const showHanzi = copyMode || currentItem.type === 'word' || revealWord;
   els.promptCopyZh.classList.toggle('hidden', !showHanzi);
   els.promptCopyZh.classList.toggle('passage-mode', isPassage);
   if(showHanzi) els.promptCopyZh.textContent = currentItem.target;
@@ -741,7 +763,11 @@ function nextItem(){
   els.promptSentenceMeaning.classList.add('hidden');
 
   if(currentItem.type === 'word'){
-    els.promptHint.textContent = `Nghĩa: ${currentItem.viet}${currentItem.hv ? ' (Hán Việt: '+currentItem.hv+')' : ''}`;
+    // Hiện chữ Hán trực tiếp trong phần từ vựng để sinh viên dễ chọn đúng chữ khi dùng bộ gõ.
+    els.promptHint.innerHTML = `
+      <div class="word-hanzi">${currentItem.target}</div>
+      <div class="word-meta">Nghĩa: ${currentItem.viet}${currentItem.hv ? ' (Hán Việt: '+currentItem.hv+')' : ''}</div>`;
+    els.promptCopyZh.classList.add('hidden');
     els.promptPy.textContent = currentItem.py;
     els.promptExtra.textContent = currentItem.pos ? 'Từ loại: ' + currentItem.pos : '';
   } else if(currentItem.type === 'example'){

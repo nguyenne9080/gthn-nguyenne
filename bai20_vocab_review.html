@@ -313,6 +313,61 @@ input[type="text"] {
     .options{gap:5px}
   }
 
+
+/* Bản sửa font chữ Hán và Hoạt động 6 */
+.font-zh,
+.han,
+.han *,
+.opt-btn,
+.match-col:first-child .match-btn{
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+
+.mixed-text{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+}
+.mixed-text .zh-run{
+  font-family:'KaiTi','STKaiti','Kaiti SC','楷体',serif !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+
+.qa-zh{
+  font-family:'KaiTi','STKaiti','Kaiti SC','楷体',serif !important;
+  font-size:2.05rem !important;
+  line-height:1.45;
+  color:var(--purple-han);
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+.qa-py{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+  font-size:1rem !important;
+  line-height:1.35;
+  color:#4f77b9;
+  margin-top:5px;
+}
+.qa-vi{
+  font-family:Arial,'Segoe UI',sans-serif !important;
+  font-size:.92rem !important;
+  line-height:1.4;
+  color:#8a6b78;
+  margin-top:4px;
+}
+.answer-input{
+  font-family:'KaiTi','STKaiti','Kaiti SC','楷体',serif !important;
+  font-size:1.35rem !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+
+@media(max-width:600px){
+  .qa-zh{font-size:1.72rem !important}
+  .qa-py{font-size:.92rem !important}
+  .qa-vi{font-size:.86rem !important}
+}
+
 </style>
 </head>
 <body>
@@ -621,6 +676,14 @@ function getFillPracticeItems(){
   }));
 }
 
+
+function formatMixedText(text){
+  return String(text).replace(
+    /([\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]+)/g,
+    '<span class="zh-run">$1</span>'
+  );
+}
+
 function renderSentenceFill(){
   const items = getFillPracticeItems();
   window.fillState = {idx:0, score:0, items};
@@ -663,7 +726,7 @@ function renderFillQuestion(){
       Câu ${state.idx+1}/${state.items.length}
     </div>
     <div class="quiz-item">
-      <div class="viet" style="font-size:1.08em">${item.prompt}</div>
+      <div class="mixed-text" style="font-size:1.08em">${formatMixedText(item.prompt)}</div>
       ${item.note ? `<div style="font-size:.88em;color:#8a6b78;margin:5px 0">${item.note}</div>` : ''}
       <div class="options">
         ${options.map(c=>`
@@ -749,10 +812,10 @@ function renderQAPractice(){
   container.innerHTML = QA_ITEMS.map((q,i)=>`
     <div class="quiz-item" style="text-align:left">
       <div style="text-align:center">
-        <span class="han" style="font-size:1.4rem">${q.zh}</span>
+        <div class="qa-zh">${q.zh}</div>
         <button class="btn btn-small" onclick="speakZH('${q.zh}')">🔊</button>
-        <div class="py" style="text-align:center">${q.py}</div>
-        <div style="text-align:center;font-size:.85em;color:#8a6b78">${q.viet}</div>
+        <div class="qa-py">${q.py}</div>
+        <div class="qa-vi">${q.viet}</div>
       </div>
       <div style="text-align:center;margin-top:8px">
         <input type="text" id="qa-input-${i}" class="answer-input" placeholder="Bạn trả lời bằng tiếng Trung...">
