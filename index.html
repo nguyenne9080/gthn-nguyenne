@@ -49,7 +49,7 @@ button:disabled{background:#ccc;cursor:not-allowed}.btn.secondary{background:var
 <div class="card">
 <h2>📊 Tiến độ của bạn</h2>
 <div class="summary-grid"><div class="summary-box"><div class="summary-value" id="vocabSum">0%</div><div>Từ vựng đã nắm vững</div></div><div class="summary-box"><div class="summary-value" id="typingSum">—</div><div>Tiến độ luyện gõ</div></div><div class="summary-box"><div class="summary-value" id="completedLessons">0</div><div>Bài có tiến độ</div></div></div>
-<div class="top-actions"><button class="btn secondary" id="refreshBtn">↻ Kiểm tra tiến độ</button><a class="btn light" href="https://forms.gle/yYgmDN7UJaoJHKmq8" target="_blank">Google Form</a></div>
+<div class="top-actions"><button class="btn secondary" id="refreshBtn">↻ Kiểm tra tiến độ</button></div>
 </div>
 <div class="card" id="booksCard"><h2>📚 Giáo trình Hán ngữ</h2><div class="book-grid">
 <button class="book" data-book="1"><div class="book-icon">📕</div><h3>Quyển 1</h3><p>Bài 1–15 · Ôn từ vựng và luyện gõ chữ Hán</p></button>
@@ -152,7 +152,14 @@ function renderLessons(book){
  const grid=document.getElementById('lessonGrid');grid.innerHTML='';
  for(let n=start;n<=end;n++){
   const p=vocabProgress(n);const div=document.createElement('div');div.className='lesson';
-  const typing=book===1?'<a class="action typing" href="go-chu-quyen-1.html">✍️ Luyện gõ</a>':'<span class="action typing disabled">✍️ Sắp có</span>';
+  let typing='';
+  if(book===1){
+    typing=`<a class="action typing" href="go-chu-bai${n}.html">✍️ Gõ chữ Bài ${n}</a>`;
+    if(n===6) typing += `<a class="action typing" href="go-chu-gioi-thieu-ban-than.html">👤 Giới thiệu bản thân</a>`;
+    if(n===9) typing += `<a class="action typing" href="go-chu-bai9-5-so-thich.html">❤️ Bài 9.5 · Sở thích</a>`;
+  }else{
+    typing='<span class="action typing disabled">✍️ Sắp có</span>';
+  }
   div.innerHTML=`<div class="lesson-head"><div><b>Bài ${n}</b><div class="lesson-title">${LESSON_TITLES[n]||''}</div></div><span class="small">${p.total?p.done+'/'+p.total+' từ':'Chưa học'}</span></div>
   <div class="actions"><a class="action vocab" href="bai${n}_vocab_review.html">📖 Ôn từ vựng</a>${typing}</div>
   <div class="progress-line"><div class="progress-fill" style="width:${p.pct}%"></div></div><div class="small">Nắm vững: ${p.pct}%</div>`;
