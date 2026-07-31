@@ -1,0 +1,6 @@
+Cập nhật STUDENTS_BY_CLASS trong index.html theo mẫu:
+"20-22": [
+  {name:"Nguyễn Văn A", studentId:"20220001"},
+  {name:"Trần Thị B", studentId:"20220002"}
+]
+Tên của lớp nào chỉ xuất hiện sau khi chọn đúng lớp đó.

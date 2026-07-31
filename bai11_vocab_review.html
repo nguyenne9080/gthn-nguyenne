@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ôn từ vựng · Bài 11 – 我们都是留学生 (Chúng tôi đều là lưu học sinh)</title>
+<style>
+  :root{
+    --pink-deep:#D6446D; --pink-mid:#F4A6B7; --pink-light:#FFE9EE;
+    --pink-bg:#FFF6F8; --purple-han:#7A3B69; --blue-py:#3D6FB0;
+    --green-ok:#3E9B5C; --red-no:#E0577B; --gray-text:#5C4A50;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,'Segoe UI',sans-serif;background:var(--pink-bg);color:var(--gray-text)}
+  .container{max-width:920px;margin:auto;padding:18px}
+  header{background:linear-gradient(135deg,var(--pink-light),#fff);border-radius:0 0 24px 24px;
+    padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    box-shadow:0 2px 12px rgba(214,68,109,.1)}
+  .logo-img{height:56px;width:56px;border-radius:50%;border:2px solid var(--pink-mid);object-fit:cover;background:#fff}
+  .logo-wrap{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--pink-mid);
+    border-radius:30px;padding:4px 14px 4px 4px}
+  .logo-text{font-weight:bold;color:var(--pink-deep)}
+  h1{color:var(--pink-deep);font-size:1.3em}
+  .level-badge{display:block;font-size:.68em;color:#8a6b78;font-weight:normal;margin-top:2px}
+  section{background:#fff;border-radius:18px;padding:20px;margin:16px 0;
+    box-shadow:0 4px 16px rgba(214,68,109,.08)}
+  section h2{color:var(--pink-deep);margin-bottom:14px}
+  .grammar-card{background:#fff;border:1.5px solid var(--pink-mid);border-radius:16px;
+    padding:14px 16px;margin-bottom:14px}
+  .grammar-card-title{font-weight:bold;color:var(--pink-deep);margin-bottom:8px;font-size:1.02em}
+  .grammar-visual{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+  .grammar-visual-item{background:var(--pink-light);border-radius:12px;padding:6px 10px;text-align:center;font-size:.82em;min-width:56px}
+  .grammar-visual-item .emoji{font-size:1.3rem;display:block}
+  .grammar-rule-box{background:var(--pink-bg);border-left:3px solid var(--pink-deep);border-radius:8px;
+    padding:8px 12px;margin-bottom:10px;font-size:.9em}
+  .grammar-examples{display:flex;flex-direction:column;gap:6px}
+  .grammar-example{background:var(--pink-light);border-radius:10px;padding:8px 12px;font-size:.9em}
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .vocab-card{background:var(--pink-light);border-radius:16px;padding:16px;text-align:center}
+  .han-row{display:flex;justify-content:center;gap:6px;margin:6px 0;flex-wrap:wrap}
+  .hanzi-target{width:88px;height:88px;background:#fff;border-radius:12px;border:1.5px solid var(--pink-mid)}
+  .han{font-family:'KaiTi','STKaiti','Kaiti SC',serif;color:var(--purple-han)}
+  .py{color:var(--blue-py);font-style:italic;margin:4px 0}
+  .hv{font-size:.85em;color:#8a6b78}
+  .pos-badge{display:inline-block;background:var(--pink-mid);color:#fff;border-radius:10px;
+    padding:1px 8px;font-size:.75em;margin:4px 0}
+  .viet{font-weight:bold;margin:6px 0}
+  .emoji{font-size:1.6rem}
+  .radical-badge{font-size:.75em;background:#fff;color:var(--pink-deep);border-radius:8px;
+    padding:3px 9px;display:inline-block;margin:3px;border:1px dashed var(--pink-mid)}
+  .note-badge{font-size:.74em;background:#fff;color:#8a6b78;border-radius:8px;padding:3px 9px;
+    display:inline-block;margin:4px 0}
+  .btn{border:none;border-radius:20px;padding:8px 16px;cursor:pointer;font-weight:bold;margin:4px}
+  .btn-small{font-size:.78em;padding:5px 10px;background:var(--pink-mid);color:#fff}
+  .btn-remember{background:var(--green-ok);color:#fff}
+  .btn-review{background:var(--red-no);color:#fff}
+  .btn-primary{background:var(--pink-deep);color:#fff}
+  .opt-btn{background:#fff;border:1.5px solid var(--pink-mid);color:var(--gray-text)}
+  .opt-correct{background:var(--green-ok)!important;color:#fff!important;border-color:var(--green-ok)!important}
+  .opt-wrong{background:var(--red-no)!important;color:#fff!important;border-color:var(--red-no)!important}
+  .options{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  .quiz-item{background:var(--pink-light);border-radius:14px;padding:14px;margin:10px 0;text-align:center}
+  .example{background:#fff;border-left:3px solid var(--pink-mid);border-radius:8px;
+    padding:8px 10px;margin:6px 0;text-align:left;font-size:.86em}
+  .single-card-wrap{max-width:360px;margin:0 auto}
+  .single-progress{text-align:center;color:#8a6b78;font-size:.85em;margin-bottom:8px}
+  .flip-card{perspective:1000px;height:170px;cursor:pointer}
+  .flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+  .flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    border-radius:14px;background:var(--pink-light);padding:8px;text-align:center}
+  .flip-back{transform:rotateY(180deg);background:#fff}
+  .single-nav{display:flex;justify-content:center;gap:6px;margin-top:10px;flex-wrap:wrap}
+  .match-grid{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .match-col{display:flex;flex-direction:column;gap:8px;width:44%;min-width:140px}
+  .match-btn{background:#fff;border:1.5px solid var(--pink-mid);color:var(--gray-text)}
+  .match-btn.selected{border-color:var(--pink-deep);background:var(--pink-light)}
+  .match-btn.matched{background:var(--green-ok);color:#fff;opacity:.6}
+  .shake{animation:shakeAnim .4s}
+  @keyframes shakeAnim{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .pinyin-input,.answer-input{padding:6px 10px;border-radius:10px;border:1.5px solid var(--pink-mid);
+    margin:6px;font-size:1em;width:80%;max-width:320px}
+  .pyres{min-height:20px;font-weight:bold}
+  .progress-bar{background:var(--pink-light);border-radius:10px;height:16px;overflow:hidden}
+  .progress-fill{background:var(--green-ok);height:100%;transition:width .5s}
+  .scramble-bank{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+  .scramble-answer{min-height:44px;border:2px dashed var(--pink-mid);border-radius:12px;
+    display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center;
+    padding:8px;margin:8px 0;background:#fff}
+  .scramble-token{background:#fff;border:1.5px solid var(--pink-mid);border-radius:14px;
+    padding:6px 12px;cursor:pointer;font-family:'KaiTi','STKaiti','Kaiti SC',serif;font-size:1.2rem;
+    color:var(--purple-han)}
+  .scramble-token.used{opacity:.35;cursor:not-allowed}
+  .hint-box{background:#fff;border-radius:10px;padding:8px 12px;margin-top:8px;font-size:.88em;display:none}
+  @media(max-width:480px){.hanzi-target{width:74px;height:74px}.vocab-grid{grid-template-columns:1fr 1fr}.match-col{width:100%}}
+</style>
+</head>
+<body>
+<div style="max-width:1100px;margin:10px auto 0;padding:0 16px;font-family:Arial,sans-serif">
+  <a href="index.html" style="color:#7030A0;text-decoration:none;font-weight:bold">← Về trang học tập</a>
+</div>
+<div class="container">
+  <header>
+    <h1 id="topic-title">Ôn từ vựng · Bài 11 – 我们都是留学生 (Chúng tôi đều là lưu học sinh)<span class="level-badge">15 từ mới — giới thiệu, xưng hô trang trọng, phó từ 也/都 — bộ thủ tách riêng theo từng chữ Hán</span></h1>
+    <div class="logo-wrap">
+      <img class="logo-img" alt="Nguyên nè" src="data:image/png;base64,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e/bskU984hNHfO6/txxVACZJIiIiP/rRj6RYLIphGFKpVGRkZER+8pOfHAHYTTfdJIZhiGEY4jiO3H333d3333HHHTIwMCCAjI+Py3XXXSeN+qIcOrhPkrgtOvEliVsStOoiIvLpT3+qC+qdd/5AdOcKPHlccSBx7Esc++K3avJX//ev5a6775IkCiSOfEliX3QUSBQ0JQpbEoftzmNxW6KgKSKx3HzzN8VLpcV20/L3X/0HqfQPyrv/+3+XRIv80R/+gQDyuc99TkRE3vKW3xBADMOQyy67TEREoij6OShWfp+ZmRHP8+R1r3udiIi84hWvkHPOOecIgLXW8pWvfKV7U999991y1llnyZve9Kbu5/3Wb/2WvOtd7/qFwB+zAGqtRWst7XZbXv/613c1AiB/93d/JyIiQRCI1lpmZmZkzZo1Xe33nve8p/s5P/7xj6VYLAog69evl4cfflhERK6//uvyhje8Qf7p5ps7FzRORIvIvv37pb+/XwC57LLLutp1//79csXb3iaf+MQnJdFa4mW43//+3xZAXv7ylx8BgX7G79R5fmLisKxZMy6A/Mmf/LGIiAwPDcl73vteERE5/fTTpVQqSRzHct1118no6Khks9nujbVybp7NWnz/+98XQL70pS/Jl770JbnwwgvltNNOk76+PllcXOy+7oorrhCllAwPD8uWLVvkVa96lbTbbdFay/bt22XLli2yuLj4wtSAK9rrq1/9qnie14Xvj//4j7sne+VE/uZv/mZXQ6xevVqmp6dFRGTPnj2yceNGAaS/v1/uueceERG59dZbxfM8AeSUU06WJIkljiIREbnk4ouXTfSw7N+/X0REFhcX5dRTTxVAXvKS8yQMQ0mSRG6//XYxTVMcx5Frr712+bif/KzPfvZqecMbLpcf331394YREXnf+94ngFQqFYnjWL7whS+IUkp279ol09PTAsj/+B//Q2ZnZ+X444+Xiy66SAD56Ec/2j037XZbHn300SPgiJb/7ic+8QkB5Itf/KK86U1vkhtuuEEsy5LLL7+8e36//OUvi2VZAkixWJQPfehD3feLiFx00UXyyU9+8j9U+x01AK7c4dPT03Laaad1zeHb3/72n4Nv+/btkslkxDAMAbogtFoteelLX9q90F/5yle6UK74PU81cx3T++nu47/3e7/Xffytb32rADI2NiY3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GMqFF14oW7dulUajIS972csEkG9/+9u/kgu+kg5aqUVfc801MjY2JqlUSjzPk8cff/wZQX8mwI8GzdMD8Je8+FpreeMb3yiAuK4ruVxOVq9eLbfccotoreXVr361bN68WcIw7Ea4J510Urd+/KswZSva7WMf+5hs3rxZPve5z4nruvKyl72se4zPVrNdea4H35HyvJjzoJY7jz/3uc+xbt067rnnHs4880ze+c53snr1at71rnfxyCOP8MADD2CaJn/zN38DwDve8Y4jWvP/rV3almVx9dVXc+WVV/Loo49y9dVXEwQBl156KYZhdF/zdHnq31bH+O6Xz/t+wF9WvvrVr0oqlZLHHntMRES+973vyapVq2TVqlUyPz//K9F+K+b7n/7pn0QpJbfddpu0Wi2pVCqSyWSOqNr05Bg0wU/1p1Yi0yiKJIoi2bZtW7cEFUWRvPzlLxegW8r6Vfh+Ip26rud58id/8iciIvKZz3ymW2HpmdYXCIBPd+yXlpZkYGCg26a0AsUZZ5whzWbz35zGWAHL933Ztm2bvOY1rxERkWazKWeeeaY4jtMtc/Wi2hcQgE/Vhuedd5784z/+o3znO9+RVColtm3Lrbfe+isxiSvv/+AHPyi2bcu+fftEROSWW24RwzC6EXdPXoAArmicO+64o5uLA7rm+N+qkVY056FDh8RxHHnrW98qWmsJw1Be9apXCSB/9md/1tN+L4Qo+JnENE1EhJe85CV885vf5MYbb+SMM87gP/2n/9RdfP2rGOTz+OOPE4YhGzduRCnFtddey3e+8x22bt3K29/+9iOmL/TkX5HhEBF5nkfxzzoR4N/6uQALCwuceuqpOI7Dhz70Id73vvdRrVb51re+xWte85rndLLUsSDP+zO3MlgnjjvbMvyq8mwrs2oqlQrf/va3GRoa4m1vexuO4/DRj36U17zmNd01zD15AWvA/0gN+9hjj5HNZhkdHT2mNo3uAXiUy8pMlafOWOlpvh6AzwmIQA++HoA96QUhPelJD8Ce9ADsSU96APakB2BPetIDsCc9AHvSkx6APekB2JOe9ADsSQ/AnvSkB2BPegD2pCc9AHvSA7AnPekB2JOjRf5//mpWsa95DnMAAAAASUVORK5CYII=">
+      <div class="logo-text">Nguyên nè</div>
+    </div>
+  </header>
+
+  <section id="grammar-note"><h2>📚 Ngữ pháp</h2><div id="grammar-box"></div></section>
+
+  <section id="vocab-cards"><h2>📇 Từ mới</h2><div class="vocab-grid" id="vocab-grid"></div></section>
+  <section id="act1"><h2>🃏 Hoạt động 1 · Flashcard</h2><div id="flashcard-single"></div></section>
+  <section id="act2"><h2>🎧 Hoạt động 2 · Nghe & chọn đúng từ</h2><div id="listen-quiz"></div></section>
+  <section id="act3"><h2>🔗 Hoạt động 3 · Ghép chữ Hán với nghĩa</h2><div id="match-game"></div></section>
+  <section id="act4"><h2>✍️ Hoạt động 4 · Điền pinyin</h2><div id="pinyin-fill"></div></section>
+  <section id="act5"><h2>📝 Hoạt động 5 · Điền câu (dùng ví dụ thật trong bài)</h2><div id="sentence-fill"></div></section>
+  <section id="act6"><h2>🎯 Hoạt động 6 · Quiz nhanh</h2><div id="quick-quiz"></div></section>
+  <section id="act7"><h2>❓ Hoạt động 7 · Hỏi & đáp</h2><div id="qa-practice"></div></section>
+  <section id="act8"><h2>🔀 Hoạt động 8 · Sắp xếp từ thành câu</h2><div id="scramble-game"></div></section>
+  <section id="act9"><h2>📊 Tổng kết</h2><div id="summary"></div></section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
+<script>
+const TOPIC = 'Bai11_WomenDouShiLiuxuesheng';
+const VOCAB = [{"id": "w01", "char": "秘书", "py": "mìshū", "hv": "Bí thư", "pos": "danh từ", "viet": "thư ký", "emoji": "🗂️", "radical": {"name": "禾(Hòa)", "meaning": "lúa", "char": "秘"}, "examples": [{"zh": "我姐姐是秘书。", "py": "Wǒ jiějie shì mìshū.", "viet": "Chị tôi là thư ký."}]}, {"id": "w02", "char": "先", "py": "xiān", "hv": "Tiên", "pos": "phó từ", "viet": "trước, trước hết", "emoji": "1️⃣", "radical": {"name": "儿(Nhi)", "meaning": "hài nhi, chân người"}, "examples": [{"zh": "你先吃吧。", "py": "Nǐ xiān chī ba.", "viet": "Bạn ăn trước đi."}]}, {"id": "w03", "char": "介绍", "py": "jièshào", "hv": "Giới thiệu", "pos": "động từ", "viet": "giới thiệu", "emoji": "🙋", "radical": [{"char": "介", "name": "人(Nhân)", "meaning": "người"}, {"char": "绍", "name": "纟(Mịch)", "meaning": "tơ, sợi"}], "examples": [{"zh": "我先介绍一下儿，这是王老师。", "py": "Wǒ xiān jièshào yíxiàr, zhè shì Wáng lǎoshī.", "viet": "Tôi giới thiệu trước một chút, đây là thầy Vương."}]}, {"id": "w04", "char": "一下儿", "py": "yíxiàr", "hv": "", "pos": "số lượng từ", "viet": "một chút, một tí", "emoji": "🤏", "radical": null, "examples": [{"zh": "等一下儿，我来了。", "py": "Děng yíxiàr, wǒ lái le.", "viet": "Đợi một chút, tôi đến rồi."}], "note": "Mẫu: động từ + 一下儿"}, {"id": "w05", "char": "位", "py": "wèi", "hv": "Vị", "pos": "lượng từ", "viet": "vị (dùng cho người, lịch sự)", "emoji": "🙎", "radical": [{"char": "位", "name": "亻(Nhân đứng)", "meaning": "người"}, {"char": "位", "name": "立(Lập)", "meaning": "đứng"}], "examples": [{"zh": "这位是老师。", "py": "Zhè wèi shì lǎoshī.", "viet": "Vị này là giáo viên."}]}, {"id": "w06", "char": "教授", "py": "jiàoshòu", "hv": "Giáo thụ", "pos": "danh từ", "viet": "giáo sư", "emoji": "👨‍🏫", "radical": [{"char": "教", "name": "攵(Phộc)", "meaning": "đánh nhẹ, gõ"}, {"char": "授", "name": "爫(Trảo)", "meaning": "bàn tay, móng vuốt"}], "examples": [{"zh": "这位是王教授。", "py": "Zhè wèi shì Wáng jiàoshòu.", "viet": "Vị này là giáo sư Vương."}]}, {"id": "w07", "char": "校长", "py": "xiàozhǎng", "hv": "Hiệu trưởng", "pos": "danh từ", "viet": "hiệu trưởng", "emoji": "🧑‍💼", "radical": {"name": "木(Mộc)", "meaning": "cây, gỗ", "char": "校"}, "examples": [{"zh": "这位是马校长。", "py": "Zhè wèi shì Mǎ xiàozhǎng.", "viet": "Vị này là hiệu trưởng Mã."}]}, {"id": "w08", "char": "欢迎", "py": "huānyíng", "hv": "Hoan nghênh", "pos": "động từ", "viet": "hoan nghênh, chào đón", "emoji": "🎉", "radical": [{"char": "欢", "name": "又(Hựu)", "meaning": "tay phải, lại"}, {"char": "迎", "name": "辶(Sước)", "meaning": "đi, chuyển động"}], "examples": [{"zh": "欢迎您，王教授。", "py": "Huānyíng nín, Wáng jiàoshòu.", "viet": "Chào đón ngài, giáo sư Vương."}]}, {"id": "w09", "char": "留学生", "py": "liúxuéshēng", "hv": "Lưu học sinh", "pos": "danh từ", "viet": "lưu học sinh", "emoji": "🎒", "radical": [{"char": "留", "name": "田(Điền)", "meaning": "ruộng"}, {"char": "生", "name": "生(Sinh)", "meaning": "sinh ra, mọc"}], "examples": [{"zh": "我是留学生。", "py": "Wǒ shì liúxuéshēng.", "viet": "Tôi là lưu học sinh."}], "note": "留学 (động từ): du học"}, {"id": "w10", "char": "我们", "py": "wǒmen", "hv": "", "pos": "đại từ", "viet": "chúng tôi, chúng ta", "emoji": "🙋‍♂️🙋‍♀️", "radical": [{"char": "我", "name": "戈(Qua)", "meaning": "cái mác, vũ khí"}, {"char": "们", "name": "亻(Nhân đứng)", "meaning": "người"}], "examples": [{"zh": "我们是越南留学生。", "py": "Wǒmen shì Yuènán liúxuéshēng.", "viet": "Chúng tôi là lưu học sinh Việt Nam."}], "note": "你们, 他们/她们 chia theo mẫu tương tự"}, {"id": "w11", "char": "都", "py": "dōu", "hv": "Đô", "pos": "phó từ", "viet": "đều", "emoji": "➡️", "radical": {"name": "阝(Ấp)", "meaning": "vùng đất, thành ấp"}, "examples": [{"zh": "我们都是留学生。", "py": "Wǒmen dōu shì liúxuéshēng.", "viet": "Chúng tôi đều là lưu học sinh."}]}, {"id": "w12", "char": "俩", "py": "liǎ", "hv": "", "pos": "số từ", "viet": "hai (người)", "emoji": "👬", "radical": {"name": "亻(Nhân đứng)", "meaning": "người"}, "examples": [{"zh": "我们俩都是学生。", "py": "Wǒmen liǎ dōu shì xuésheng.", "viet": "Hai chúng tôi đều là học sinh."}], "note": "俩 = 两个"}, {"id": "w13", "char": "和", "py": "hé", "hv": "Hòa", "pos": "liên từ", "viet": "và", "emoji": "➕", "radical": {"name": "禾(Hòa)", "meaning": "lúa"}, "examples": [{"zh": "我和她都是学生。", "py": "Wǒ hé tā dōu shì xuésheng.", "viet": "Tôi và cô ấy đều là học sinh."}]}, {"id": "w14", "char": "学生", "py": "xuésheng", "hv": "Học sinh", "pos": "danh từ", "viet": "học sinh", "emoji": "🧑‍🎓", "radical": [{"char": "学", "name": "冖(Mịch)", "meaning": "che, đậy"}, {"char": "生", "name": "生(Sinh)", "meaning": "sinh ra, mọc"}], "examples": [{"zh": "我是大南大学的学生。", "py": "Wǒ shì Dànán Dàxué de xuésheng.", "viet": "Tôi là học sinh trường Đại học Đại Nam."}]}, {"id": "w15", "char": "没什么", "py": "méi shénme", "hv": "", "pos": "cụm từ", "viet": "không có gì", "emoji": "🤷", "radical": {"name": "氵(Thủy)", "meaning": "nước", "char": "没"}, "examples": [{"zh": "对不起！— 没什么！", "py": "Duìbuqǐ! — Méi shénme!", "viet": "Xin lỗi! — Không có gì!"}]}];
+const QA_ITEMS = [{"zh": "你是留学生吗？", "py": "Nǐ shì liúxuéshēng ma?", "viet": "Bạn có phải là lưu học sinh không?", "suggestions": ["我是留学生。(Tôi là lưu học sinh.)", "我不是留学生。(Tôi không phải là lưu học sinh.)"]}, {"zh": "你们都是学生吗？", "py": "Nǐmen dōu shì xuésheng ma?", "viet": "Các bạn đều là học sinh à?", "suggestions": ["我们都是学生。(Chúng tôi đều là học sinh.)", "我们不都是学生。(Không phải tất cả chúng tôi đều là học sinh.)"]}, {"zh": "你先吃什么？", "py": "Nǐ xiān chī shénme?", "viet": "Bạn ăn gì trước?", "suggestions": ["我先吃馒头。(Tôi ăn bánh màn thầu trước.)"]}, {"zh": "你和谁一起学习汉语？", "py": "Nǐ hé shéi yìqǐ xuéxí Hànyǔ?", "viet": "Bạn cùng ai học tiếng Trung?", "suggestions": ["我和我朋友一起学习汉语。(Tôi cùng bạn tôi học tiếng Trung.)"]}, {"zh": "这位是谁？", "py": "Zhè wèi shì shéi?", "viet": "Vị này là ai?", "suggestions": ["这位是我们的教授。(Vị này là giáo sư của chúng tôi.)"]}];
+const SCRAMBLE_ITEMS = [{"tokens": ["她", "妈妈", "身体", "不", "好"], "accepted": [["她", "妈妈", "身体", "不", "好"]], "viet": "Mẹ cô ấy sức khỏe không tốt."}, {"tokens": ["汉语", "不太", "难"], "accepted": [["汉语", "不太", "难"]], "viet": "Tiếng Trung không quá khó."}, {"tokens": ["他", "也", "是", "留学生"], "accepted": [["他", "也", "是", "留学生"]], "viet": "Anh ấy cũng là lưu học sinh."}, {"tokens": ["我们", "都", "是", "教授"], "accepted": [["我们", "都", "是", "教授"]], "viet": "Chúng tôi đều là giáo sư."}, {"tokens": ["爸爸", "的", "工作", "很", "忙"], "accepted": [["爸爸", "的", "工作", "很", "忙"]], "viet": "Công việc của bố rất bận."}, {"tokens": ["我", "给", "你们", "介绍", "一下"], "accepted": [["我", "给", "你们", "介绍", "一下"]], "viet": "Tôi giới thiệu với các bạn một chút."}];
+const GRAMMAR_NOTES = [{"title": "Chuyển câu hỏi \"...吗？\" ↔ câu trần thuật", "visual": [{"emoji": "❓", "label": "...吗？"}, {"emoji": "↔️", "label": ""}, {"emoji": "✅", "label": "trần thuật"}], "rule": "Chủ ngữ + tính từ/động từ + 吗？ ↔ Chủ ngữ + (phó từ/phó từ phủ định) + tính từ/động từ.", "examples": [{"zh": "你忙吗？→ 我很忙。/ 我不忙。", "py": "Nǐ máng ma? → Wǒ hěn máng. / Wǒ bù máng.", "viet": "Bạn có bận không? → Tôi rất bận. / Tôi không bận."}]}, {"title": "状语 (trạng ngữ) — vị trí trước động từ/tính từ", "visual": [{"emoji": "🔧", "label": "phó từ"}, {"emoji": "📍", "label": "giới từ+tân ngữ"}, {"emoji": "🕐", "label": "thời gian"}], "rule": "Trạng ngữ (phó từ, cụm giới từ, danh từ chỉ thời gian...) luôn đứng trước động từ hoặc tính từ mà nó bổ nghĩa.", "examples": [{"zh": "他也是留学生。", "py": "Tā yě shì liúxuéshēng.", "viet": "Anh ấy cũng là lưu học sinh."}, {"zh": "我给你们介绍一下。", "py": "Wǒ gěi nǐmen jièshào yíxià.", "viet": "Tôi giới thiệu với các bạn một chút."}, {"zh": "我们明天去吧。", "py": "Wǒmen míngtiān qù ba.", "viet": "Chúng ta ngày mai đi nhé."}]}, {"title": "也 và 都 — vị trí và thứ tự", "visual": [{"emoji": "🔁", "label": "也"}, {"emoji": "➡️", "label": "都"}], "rule": "也 (cũng) và 都 (đều) đều làm trạng ngữ đứng trước động từ/tính từ, không đứng trước chủ ngữ. Nếu câu có cả hai, 也 luôn đứng trước 都.", "examples": [{"zh": "他们也都是留学生。", "py": "Tāmen yě dōu shì liúxuéshēng.", "viet": "Họ cũng đều là lưu học sinh."}]}, {"title": "都不是 vs 不都是", "visual": [{"emoji": "❌", "label": "都不是"}, {"emoji": "➗", "label": "不都是"}], "rule": "都不是 = tất cả đều không phải (phủ định toàn bộ). 不都是 = không phải tất cả đều (có người đúng, có người không).", "examples": [{"zh": "他们都不是美国人。", "py": "Tāmen dōu bú shì Měiguó rén.", "viet": "Tất cả bọn họ đều không phải người Mỹ."}, {"zh": "他们不都是美国人。", "py": "Tāmen bù dōu shì Měiguó rén.", "viet": "Không phải tất cả bọn họ đều là người Mỹ."}]}];
+const CUSTOM_FILL_ITEMS = [{"hidden": "介绍", "blanked": "秘书：我先___一下儿，这是马校长，这是王教授。", "viet": "Thư ký: Tôi xin giới thiệu một chút, đây là hiệu trưởng Mã, đây là giáo sư Vương."}, {"hidden": "欢迎", "blanked": "马校长：___您，王教授。", "viet": "Hiệu trưởng Mã: Chào đón ngài, giáo sư Vương."}, {"hidden": "留学生", "blanked": "A：你是___吗？", "viet": "A: Bạn có phải là lưu học sinh không?"}, {"hidden": "都", "blanked": "B：他也是留学生，我们___是留学生。", "viet": "B: Anh ấy cũng là lưu học sinh, chúng tôi đều là lưu học sinh."}, {"hidden": "俩", "blanked": "B：不，他们___不是留学生，他们都是中国学生。", "viet": "B: Không, cả hai người họ không phải lưu học sinh, họ đều là học sinh Trung Quốc."}, {"hidden": "学生", "blanked": "B：他们都是中国___。", "viet": "B: Họ đều là học sinh Trung Quốc."}, {"hidden": "没什么", "blanked": "A：对不起？ B：___。", "viet": "A: Xin lỗi! B: Không có gì."}, {"hidden": "位", "blanked": "这___是老师。", "viet": "Vị này là giáo viên."}, {"hidden": "先", "blanked": "你___吃吧。", "viet": "Bạn ăn trước đi."}, {"hidden": "秘书", "blanked": "我姐姐是___。", "viet": "Chị tôi là thư ký."}];
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function chunk(arr,size){const out=[];for(let i=0;i<arr.length;i+=size)out.push(arr.slice(i,i+size));return out;}
+
+const ACTIVE_STUDENT = (()=>{try{return JSON.parse(localStorage.getItem('nguyenne_active_student'))||{}}catch(e){return{}}})();
+const STUDENT_SCOPE = [ACTIVE_STUDENT.className, ACTIVE_STUDENT.studentName, ACTIVE_STUDENT.studentId]
+  .filter(Boolean).join('_').replace(/[^\wÀ-ỹ-]/g,'_') || 'guest';
+const STORE_KEY = 'vocabReview_' + STUDENT_SCOPE + '_' + TOPIC;
+function getStatus(){ try{return JSON.parse(localStorage.getItem(STORE_KEY))||{}}catch(e){return{}} }
+function setStatus(id,val){ const s=getStatus(); s[id]=val; localStorage.setItem(STORE_KEY, JSON.stringify(s)); renderSummary(); }
+
+function speakZH(char){
+  if('speechSynthesis' in window){
+    const u = new SpeechSynthesisUtterance(char);
+    u.lang='zh-CN'; speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+}
+
+const writerStore = {};
+function initHanziAnimations(){
+  VOCAB.forEach(w=>{
+    const chars = Array.from(w.char);
+    writerStore[w.id] = [];
+    chars.forEach((ch, idx)=>{
+      const target = document.getElementById(`hanzi-${w.id}-${idx}`);
+      if(!target || typeof HanziWriter === 'undefined') return;
+      try{
+        const writer = HanziWriter.create(target, ch, {
+          width: 88, height: 88, padding: 5,
+          strokeAnimationSpeed: 1, delayBetweenStrokes: 200,
+          strokeColor: '#D6446D', outlineColor: '#F4A6B7',
+          showOutline: true, showCharacter: false
+        });
+        writerStore[w.id].push(writer);
+        writer.animateCharacter();
+      }catch(e){ target.innerHTML = `<div class="han" style="font-size:1.8rem;line-height:88px">${ch}</div>`; }
+    });
+  });
+}
+function replayHanzi(id){
+  (writerStore[id]||[]).forEach((writer, i)=> setTimeout(()=>writer.animateCharacter(), i*150));
+}
+
+function renderGrammarNote(){
+  if(!GRAMMAR_NOTES || !GRAMMAR_NOTES.length) return;
+  const box = document.getElementById('grammar-box');
+  if(!box) return;
+  box.innerHTML = GRAMMAR_NOTES.map(gn=>`
+    <div class="grammar-card">
+      <div class="grammar-card-title">${gn.title||''}</div>
+      ${gn.visual&&gn.visual.length? `<div class="grammar-visual">${gn.visual.map(v=>`<div class="grammar-visual-item"><span class="emoji">${v.emoji}</span>${v.label}</div>`).join('')}</div>`:''}
+      <div class="grammar-rule-box">${gn.rule}</div>
+      <div class="grammar-examples">
+        ${gn.examples.map(ex=>`<div class="grammar-example">${ex.zh}<br>
+          <span style="color:var(--blue-py)">${ex.py}</span><br>${ex.viet}</div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function renderVocabCards(){
+  const grid = document.getElementById('vocab-grid');
+  grid.innerHTML = VOCAB.map(w=>{
+    const examplesHtml = (w.examples||[]).map(ex=>`
+      <div class="example">${ex.zh.replace(w.char, `<b style="color:var(--pink-deep)">${w.char}</b>`)}<br>
+      <span style="color:var(--blue-py)">${ex.py}</span><br>${ex.viet}</div>`).join('');
+    const radicals = w.radical? (Array.isArray(w.radical)?w.radical:[w.radical]):[];
+    return `
+    <div class="vocab-card" id="card-${w.id}">
+      <div class="emoji">${w.emoji}</div>
+      <div class="han-row">
+        ${Array.from(w.char).map((ch,idx)=>`<div class="hanzi-target" id="hanzi-${w.id}-${idx}"></div>`).join('')}
+      </div>
+      <button class="btn btn-small" onclick="replayHanzi('${w.id}')">▶️ Xem lại nét viết</button>
+      <div class="py">${w.py}</div>
+      ${w.hv? `<div class="hv">Hán Việt: ${w.hv}</div>`:''}
+      <span class="pos-badge">${w.pos}</span>
+      <div class="viet">${w.viet}</div>
+      ${radicals.map(r=>`<div class="radical-badge">Bộ ${r.name}${r.char?` (trong ${r.char})`:''} — ${r.meaning}</div>`).join('')}
+      ${w.note? `<div class="note-badge">${w.note}</div>`:''}
+      ${examplesHtml}
+      <div>
+        <button class="btn btn-primary" onclick="speakZH('${w.char}')">🔊 Nghe</button>
+      </div>
+      <div>
+        <button class="btn btn-remember" onclick="setStatus('${w.id}','remember')">✅ Tôi nhớ rồi</button>
+        <button class="btn btn-review" onclick="setStatus('${w.id}','review')">🔁 Cần ôn lại</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══ Hoạt động 1: Flashcard (1 thẻ / lần, tự động chuyển) ═══
+let flashState = {idx:0};
+function renderFlashcards(){
+  flashState.idx = 0;
+  renderFlashCurrent();
+}
+function renderFlashCurrent(){
+  const container = document.getElementById('flashcard-single');
+  const w = VOCAB[flashState.idx];
+  container.innerHTML = `
+    <div class="single-card-wrap">
+      <div class="single-progress">Thẻ ${flashState.idx+1}/${VOCAB.length}</div>
+      <div class="flip-card" id="flash-card-el" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front"><div class="han" style="font-size:2.4rem">${w.char}</div></div>
+          <div class="flip-back">
+            <div class="py">${w.py}</div>
+            <div class="viet" style="font-size:.85em">${w.viet}</div>
+            <div class="emoji">${w.emoji}</div>
+          </div>
+        </div>
+      </div>
+      <div class="single-nav">
+        <button class="btn btn-small" onclick="flashNav(-1)">◀ Trước</button>
+        <button class="btn btn-remember" onclick="flashMark('remember')">✅ Nhớ rồi</button>
+        <button class="btn btn-review" onclick="flashMark('review')">🔁 Cần ôn lại</button>
+        <button class="btn btn-small" onclick="flashNav(1)">Tiếp ▶</button>
+      </div>
+    </div>`;
+}
+function flashNav(delta){
+  flashState.idx = (flashState.idx + delta + VOCAB.length) % VOCAB.length;
+  renderFlashCurrent();
+}
+function flashMark(status){
+  setStatus(VOCAB[flashState.idx].id, status);
+  if(flashState.idx < VOCAB.length - 1){
+    flashState.idx++;
+    renderFlashCurrent();
+  } else {
+    document.getElementById('flashcard-single').innerHTML =
+      '<div style="text-align:center"><p>🎉 Đã ôn hết flashcard!</p><button class="btn btn-primary" onclick="renderFlashcards()">🔄 Ôn lại từ đầu</button></div>';
+  }
+}
+
+// ═══ Hoạt động 2: Nghe & chọn (1 câu / lần, tự động chuyển) ═══
+let listenState = {idx:0, order:[]};
+function renderListenQuiz(){
+  listenState.idx = 0;
+  listenState.order = shuffle(VOCAB);
+  renderListenCurrent();
+}
+function renderListenCurrent(){
+  const container = document.getElementById('listen-quiz');
+  if(listenState.idx >= listenState.order.length){
+    container.innerHTML = '<div style="text-align:center"><p>🎉 Đã hoàn thành phần nghe!</p><button class="btn btn-primary" onclick="renderListenQuiz()">🔄 Làm lại</button></div>';
+    return;
+  }
+  const w = listenState.order[listenState.idx];
+  const distractors = shuffle(VOCAB.filter(v=>v.id!==w.id)).slice(0,3);
+  const options = shuffle([w, ...distractors]);
+  container.innerHTML = `
+    <div class="single-card-wrap">
+      <div class="single-progress">Câu ${listenState.idx+1}/${listenState.order.length}</div>
+      <div class="quiz-item">
+        <button class="btn btn-primary" onclick="speakZH('${w.char}')">🔊 Phát âm</button>
+        <div class="options">
+          ${options.map(o=>`<button class="btn opt-btn" onclick="checkListen('${w.id}','${o.char}',this)">${o.char}</button>`).join('')}
+        </div>
+      </div>
+    </div>`;
+}
+function checkListen(correctId, chosenChar, btn){
+  const correct = VOCAB.find(v=>v.id===correctId);
+  const buttons = btn.parentElement.querySelectorAll('button');
+  buttons.forEach(b=>{ if(b.textContent===correct.char) b.classList.add('opt-correct'); b.disabled=true; });
+  if(chosenChar!==correct.char) btn.classList.add('opt-wrong');
+  setTimeout(()=>{ listenState.idx++; renderListenCurrent(); }, 700);
+}
+
+function renderMatchGame(){
+  const container = document.getElementById('match-game');
+  const batches = chunk(VOCAB, 8);
+  container.innerHTML = `<div id="match-batches"></div>`;
+
+  window.loadMatchBatch = function(idx){
+    const batch = batches[idx];
+    const left = shuffle(batch.map(w=>({id:w.id, char:w.char})));
+    const right = shuffle(batch.map(w=>({id:w.id, viet:w.viet})));
+    const el = document.getElementById('match-batches');
+    el.innerHTML = `
+      <div style="text-align:center;margin-bottom:8px">
+        ${batches.map((b,i)=>`<button class="btn btn-small" onclick="loadMatchBatch(${i})">Vòng ${i+1}</button>`).join('')}
+      </div>
+      <div class="match-grid">
+        <div class="match-col" id="match-left">
+          ${left.map(l=>`<button class="btn match-btn" data-id="${l.id}" onclick="selectMatch(this,'left')">${l.char}</button>`).join('')}
+        </div>
+        <div class="match-col" id="match-right">
+          ${right.map(r=>`<button class="btn match-btn" data-id="${r.id}" onclick="selectMatch(this,'right')">${r.viet}</button>`).join('')}
+        </div>
+      </div>`;
+    window.matchState = {selectedLeft:null, selectedRight:null, selectedLeftBtn:null, selectedRightBtn:null};
+  };
+
+  window.selectMatch = function(btn, side){
+    if(btn.classList.contains('matched') || btn.disabled) return;
+    const state = window.matchState;
+    if(side==='left'){
+      if(state.selectedLeftBtn) state.selectedLeftBtn.classList.remove('selected');
+      state.selectedLeftBtn = btn; state.selectedLeft = btn.dataset.id;
+      btn.classList.add('selected');
+    } else {
+      if(state.selectedRightBtn) state.selectedRightBtn.classList.remove('selected');
+      state.selectedRightBtn = btn; state.selectedRight = btn.dataset.id;
+      btn.classList.add('selected');
+    }
+    if(state.selectedLeft && state.selectedRight){
+      if(state.selectedLeft === state.selectedRight){
+        state.selectedLeftBtn.classList.add('matched'); state.selectedLeftBtn.disabled=true;
+        state.selectedRightBtn.classList.add('matched'); state.selectedRightBtn.disabled=true;
+        state.selectedLeftBtn=null; state.selectedRightBtn=null; state.selectedLeft=null; state.selectedRight=null;
+      } else {
+        const lb = state.selectedLeftBtn, rb = state.selectedRightBtn;
+        lb.classList.add('shake'); rb.classList.add('shake');
+        setTimeout(()=>{
+          lb.classList.remove('selected','shake');
+          rb.classList.remove('selected','shake');
+        }, 500);
+        state.selectedLeftBtn=null; state.selectedRightBtn=null; state.selectedLeft=null; state.selectedRight=null;
+      }
+    }
+  };
+
+  loadMatchBatch(0);
+}
+
+function normalizePinyin(str){
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[0-9]/g,'').replace(/\s+/g,'').toLowerCase();
+}
+function renderPinyinFill(){
+  const container = document.getElementById('pinyin-fill');
+  container.innerHTML = VOCAB.map(w=>`
+    <div class="quiz-item">
+      <div class="han" style="font-size:1.7rem">${w.char}</div>
+      <div class="viet" style="font-size:.85em">${w.viet}</div>
+      <div><input type="text" id="pyin-${w.id}" placeholder="Nhập pinyin..." class="pinyin-input"></div>
+      <button class="btn btn-primary" onclick="checkPinyin('${w.id}')">Kiểm tra</button>
+      <div id="pyres-${w.id}" class="pyres"></div>
+    </div>`).join('');
+}
+function checkPinyin(id){
+  const w = VOCAB.find(v=>v.id===id);
+  const input = document.getElementById(`pyin-${id}`).value;
+  const res = document.getElementById(`pyres-${id}`);
+  if(normalizePinyin(input) === normalizePinyin(w.py)){
+    res.innerHTML = '<span style="color:var(--green-ok)">✅ Chính xác!</span>';
+  } else {
+    res.innerHTML = `<span style="color:var(--red-no)">❌ Sai rồi. Đáp án: ${w.py}</span>`;
+  }
+}
+
+function buildSentenceFillItems(){
+  const items = [];
+  VOCAB.forEach(w=>{
+    if(w.examples && w.examples.length){
+      const ex = w.examples[0];
+      if(ex.zh.includes(w.char)){
+        items.push({hidden:w.char, blanked: ex.zh.replace(w.char, '___'), viet: ex.viet});
+      }
+    }
+  });
+  return items;
+}
+function renderSentenceFill(){
+  const container = document.getElementById('sentence-fill');
+  const auto = buildSentenceFillItems();
+  const combined = [...(CUSTOM_FILL_ITEMS||[]), ...auto];
+  const seen = new Set();
+  const items = combined.filter(it=>{
+    if(seen.has(it.blanked)) return false;
+    seen.add(it.blanked); return true;
+  });
+  const allChars = [...new Set(VOCAB.map(w=>w.char).concat(items.map(it=>it.hidden)))];
+  container.innerHTML = items.map((item,i)=>{
+    const distractors = shuffle(allChars.filter(c=>c!==item.hidden)).slice(0,3);
+    const options = shuffle([item.hidden, ...distractors]);
+    return `<div class="quiz-item">
+      <div class="viet" style="font-size:1.05em">${item.blanked}</div>
+      <div style="font-size:.85em;color:#8a6b78;margin:4px 0">${item.viet}</div>
+      <div class="options">
+        ${options.map(c=>`<button class="btn opt-btn" onclick="checkFill(${i},'${c}',this)">${c}</button>`).join('')}
+      </div>
+    </div>`;
+  }).join('') + `<div id="fill-score" style="text-align:center;font-weight:bold;margin-top:10px"></div>`;
+  window.fillItems = items;
+  window.fillScore = {correct:0, answered:0};
+}
+function checkFill(idx, chosen, btn){
+  const item = window.fillItems[idx];
+  const buttons = btn.parentElement.querySelectorAll('button');
+  buttons.forEach(b=>{ if(b.textContent===item.hidden) b.classList.add('opt-correct'); b.disabled=true; });
+  if(chosen!==item.hidden) btn.classList.add('opt-wrong');
+  window.fillScore.answered++;
+  if(chosen===item.hidden) window.fillScore.correct++;
+  if(window.fillScore.answered === window.fillItems.length){
+    document.getElementById('fill-score').textContent = `Kết quả: ${window.fillScore.correct}/${window.fillItems.length} câu đúng`;
+  }
+}
+
+function renderQuickQuiz(){
+  const questions = shuffle(VOCAB.map(w=>({word:w, type: Math.random()<0.5?'char2meaning':'meaning2char'})));
+  window.quickQuizState = {idx:0, score:0, questions};
+  renderQuickQuizQuestion();
+}
+function renderQuickQuizQuestion(){
+  const state = window.quickQuizState;
+  const container = document.getElementById('quick-quiz');
+  if(state.idx >= state.questions.length){
+    const pct = Math.round(state.score/state.questions.length*100);
+    const msg = pct>=80? 'Giỏi quá! 🌸' : pct>=50? 'Khá lắm, cố thêm chút nữa! 🌟' : 'Ôn lại thêm nhé, cố lên! 💪';
+    container.innerHTML = `<div style="text-align:center">
+      <p>Kết quả: ${state.score}/${state.questions.length} (${pct}%)</p>
+      <p>${msg}</p>
+      <button class="btn btn-primary" onclick="renderQuickQuiz()">🔄 Làm lại</button></div>`;
+    return;
+  }
+  const q = state.questions[state.idx];
+  const w = q.word;
+  let questionHtml, correctVal, optionsPool;
+  if(q.type==='char2meaning'){
+    questionHtml = `<div class="han" style="font-size:1.9rem">${w.char}</div><div class="py">${w.py}</div>`;
+    correctVal = w.viet;
+    optionsPool = shuffle([w, ...shuffle(VOCAB.filter(v=>v.id!==w.id)).slice(0,3)]).map(v=>v.viet);
+  } else {
+    questionHtml = `<div class="viet">${w.viet}</div>`;
+    correctVal = w.char;
+    optionsPool = shuffle([w, ...shuffle(VOCAB.filter(v=>v.id!==w.id)).slice(0,3)]).map(v=>v.char);
+  }
+  container.innerHTML = `
+    <div style="text-align:center;margin-bottom:6px;color:#8a6b78;font-size:.85em">Câu ${state.idx+1}/${state.questions.length}</div>
+    <div class="quiz-item">
+      ${questionHtml}
+      <div class="options">
+        ${optionsPool.map(o=>`<button class="btn opt-btn" onclick="answerQuickQuiz('${encodeURIComponent(o)}','${encodeURIComponent(correctVal)}',this)">${o}</button>`).join('')}
+      </div>
+    </div>`;
+}
+function answerQuickQuiz(chosenEnc, correctEnc, btn){
+  const chosen = decodeURIComponent(chosenEnc), correct = decodeURIComponent(correctEnc);
+  const buttons = btn.parentElement.querySelectorAll('button');
+  buttons.forEach(b=>{ if(b.textContent===correct) b.classList.add('opt-correct'); b.disabled=true; });
+  if(chosen!==correct) btn.classList.add('opt-wrong'); else window.quickQuizState.score++;
+  setTimeout(()=>{ window.quickQuizState.idx++; renderQuickQuizQuestion(); }, 700);
+}
+
+function renderQAPractice(){
+  const container = document.getElementById('qa-practice');
+  if(!QA_ITEMS.length){ container.innerHTML = '<p style="text-align:center;color:#8a6b78">Không có mục hỏi đáp cho bài này.</p>'; return; }
+  container.innerHTML = QA_ITEMS.map((q,i)=>`
+    <div class="quiz-item" style="text-align:left">
+      <div style="text-align:center">
+        <span class="han" style="font-size:1.4rem">${q.zh}</span>
+        <button class="btn btn-small" onclick="speakZH('${q.zh}')">🔊</button>
+        <div class="py" style="text-align:center">${q.py}</div>
+        <div style="text-align:center;font-size:.85em;color:#8a6b78">${q.viet}</div>
+      </div>
+      <div style="text-align:center;margin-top:8px">
+        <input type="text" id="qa-input-${i}" class="answer-input" placeholder="Bạn trả lời bằng tiếng Trung...">
+      </div>
+      <div style="text-align:center">
+        <button class="btn btn-primary" onclick="document.getElementById('qa-hint-${i}').style.display='block'">💡 Xem gợi ý đáp án</button>
+      </div>
+      <div id="qa-hint-${i}" class="hint-box">
+        Gợi ý: ${q.suggestions.join(' &nbsp;·&nbsp; ')}
+      </div>
+    </div>`).join('');
+}
+
+function renderScrambleGame(){
+  const container = document.getElementById('scramble-game');
+  if(!SCRAMBLE_ITEMS.length){ container.innerHTML = '<p style="text-align:center;color:#8a6b78">Không có mục sắp xếp từ cho bài này.</p>'; return; }
+  container.innerHTML = SCRAMBLE_ITEMS.map((item,i)=>`
+    <div class="quiz-item">
+      <div style="font-size:.85em;color:#8a6b78;margin-bottom:6px">Sắp xếp thành câu nghĩa: "${item.viet}"</div>
+      <div class="scramble-answer" id="scramble-answer-${i}"></div>
+      <div class="scramble-bank" id="scramble-bank-${i}"></div>
+      <button class="btn btn-small" onclick="resetScramble(${i})">🔄 Xóa</button>
+      <button class="btn btn-primary" onclick="checkScramble(${i})">Kiểm tra</button>
+      <div id="scramble-res-${i}" class="pyres"></div>
+    </div>`).join('');
+  window.scrambleState = SCRAMBLE_ITEMS.map(item=>({ built: [], shuffled: shuffle(item.tokens) }));
+  SCRAMBLE_ITEMS.forEach((item,i)=> renderScrambleBank(i));
+}
+function renderScrambleBank(i){
+  const state = window.scrambleState[i];
+  const bank = document.getElementById(`scramble-bank-${i}`);
+  bank.innerHTML = state.shuffled.map((tok,ti)=>`
+    <span class="scramble-token" data-ti="${ti}" onclick="pickScrambleToken(${i},${ti})">${tok}</span>`).join('');
+  updateScrambleAnswer(i);
+}
+function updateScrambleAnswer(i){
+  const state = window.scrambleState[i];
+  const ans = document.getElementById(`scramble-answer-${i}`);
+  ans.innerHTML = state.built.length
+    ? state.built.map(tok=>`<span class="scramble-token">${tok}</span>`).join('')
+    : '<span style="color:#c99;font-size:.85em">Bấm các từ bên dưới theo đúng thứ tự...</span>';
+}
+function pickScrambleToken(i, ti){
+  const state = window.scrambleState[i];
+  const bankEls = document.getElementById(`scramble-bank-${i}`).querySelectorAll('.scramble-token');
+  const el = bankEls[ti];
+  if(el.classList.contains('used')) return;
+  el.classList.add('used');
+  state.built.push(state.shuffled[ti]);
+  updateScrambleAnswer(i);
+}
+function resetScramble(i){
+  const state = window.scrambleState[i];
+  state.built = [];
+  document.getElementById(`scramble-res-${i}`).textContent = '';
+  renderScrambleBank(i);
+}
+function checkScramble(i){
+  const state = window.scrambleState[i];
+  const accepted = SCRAMBLE_ITEMS[i].accepted || [SCRAMBLE_ITEMS[i].correct];
+  const res = document.getElementById(`scramble-res-${i}`);
+  const isCorrect = accepted.some(seq=> state.built.length===seq.length && state.built.every((t,idx)=>t===seq[idx]));
+  if(isCorrect){
+    res.innerHTML = '<span style="color:var(--green-ok)">✅ Chính xác!</span>';
+  } else {
+    const answerText = accepted.map(seq=>seq.join('')).join('  hoặc  ');
+    res.innerHTML = `<span style="color:var(--red-no)">❌ Chưa đúng. Đáp án: ${answerText}</span>`;
+  }
+}
+
+function renderSummary(){
+  const status = getStatus();
+  const total = VOCAB.length;
+  const remembered = VOCAB.filter(w=>status[w.id]==='remember').length;
+  const needReview = VOCAB.filter(w=>status[w.id]==='review');
+  const pct = total? Math.round(remembered/total*100):0;
+  document.getElementById('summary').innerHTML = `
+    <p>${remembered}/${total} từ đã nhớ (${pct}%)</p>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    ${needReview.length? `<p style="margin-top:10px">🔁 Cần ôn lại: ${
+      needReview.map(w=>`<a href="#card-${w.id}" style="color:var(--pink-deep);font-weight:bold">${w.char}</a>`).join('、')
+    }</p>` : '<p style="margin-top:10px">🎉 Không còn từ nào cần ôn lại!</p>'}
+    <button class="btn btn-primary" onclick="localStorage.removeItem('${STORE_KEY}');renderSummary()">🔄 Làm lại từ đầu</button>`;
+}
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  renderGrammarNote();
+  renderVocabCards();
+  initHanziAnimations();
+  renderFlashcards();
+  renderListenQuiz();
+  renderMatchGame();
+  renderPinyinFill();
+  renderSentenceFill();
+  renderQuickQuiz();
+  renderQAPractice();
+  renderScrambleGame();
+  renderSummary();
+  if('speechSynthesis' in window) speechSynthesis.getVoices();
+});
+</script>
+</body>
+</html>
