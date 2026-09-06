@@ -1,213 +1,48 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ec4899">
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nguyên nè | Tiếng Trung Quốc cơ sở</title>
 <style>
-:root{--pink:#ec4899;--pink2:#be185d;--soft:#fff1f7;--ink:#1f2937;--muted:#6b7280;--line:#f1d5e2;}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:linear-gradient(180deg,#fff7fb,#fff);color:var(--ink);min-height:100vh}
-.wrap{width:min(980px,calc(100% - 24px));margin:auto;padding:24px 0 56px}
-.brand{display:flex;justify-content:center;margin-bottom:14px}
-.brand span{background:#fff;border:1px solid var(--line);color:var(--pink2);padding:8px 14px;border-radius:999px;font-weight:800;font-size:13px}
-.hero{text-align:center;padding:26px 18px}
-.hero h1{margin:8px 0 8px;font-size:clamp(28px,6vw,46px);letter-spacing:-.04em}
-.hero p{margin:0;color:var(--muted);line-height:1.6}
-.card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 16px 42px rgba(190,24,93,.08);padding:22px}
-.step-title{font-size:20px;font-weight:900;margin:0 0 6px}
-.step-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
-label{display:block;font-size:13px;font-weight:800;margin:0 0 7px}
-select,input{width:100%;height:50px;border:1px solid #ead7e0;border-radius:15px;background:#fff;padding:0 14px;font-size:16px;outline:none}
-select:focus,input:focus{border-color:#f472b6;box-shadow:0 0 0 4px rgba(244,114,182,.12)}
-.field{margin-bottom:16px}
-.namebox{min-height:58px;border-radius:16px;background:#fff8fb;border:1px dashed #efbfd5;padding:13px 15px;display:flex;align-items:center}
-.namebox .label{font-size:12px;color:#9ca3af}
-.namebox strong{display:block;margin-top:3px;font-size:16px}
-.namebox.error{background:#fff5f5;border-color:#fca5a5}
-.btn{width:100%;height:50px;border:0;border-radius:15px;background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff;font-weight:900;font-size:15px;cursor:pointer}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.screen{display:none} .screen.active{display:block}
-.books{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.book{padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#fff,#fff8fb);cursor:pointer;transition:.18s}
-.book:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(190,24,93,.09)}
-.book .cover{width:60px;height:76px;border-radius:10px;background:linear-gradient(145deg,#f472b6,#be185d);box-shadow:6px 6px 0 #fce7f3;margin-bottom:16px}
-.book h3{margin:0 0 6px;font-size:21px}
-.book p{margin:0;color:var(--muted);font-size:13px}
-.topbar{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.back{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-weight:800;cursor:pointer}
-.student-badge{margin-left:auto;text-align:right}
-.student-badge b{display:block;font-size:13px} .student-badge span{font-size:11px;color:var(--muted)}
-.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.lesson{border:1px solid var(--line);border-radius:17px;padding:16px;background:#fff;cursor:pointer;min-height:108px}
-.lesson:hover{border-color:#f9a8d4;background:#fffafb}
-.lesson-num{font-size:11px;color:var(--pink2);font-weight:900;text-transform:uppercase}
-.lesson h4{margin:8px 0 0;font-size:18px}
-.lesson .soon{margin-top:10px;font-size:11px;color:#9ca3af}
-.footer{text-align:center;color:#9ca3af;font-size:11px;margin-top:22px}
-@media(max-width:700px){.wrap{padding-top:10px}.card{padding:16px;border-radius:20px}.books{grid-template-columns:1fr}.lessons{grid-template-columns:repeat(2,1fr)}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="brand"><span>🌸 NGUYÊN NÈ · TIẾNG TRUNG</span></div>
+:root{--p:#ec4899;--pd:#be185d;--bg:#fff7fb;--line:#f2d4e3;--ink:#20242d;--muted:#737987}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial;background:linear-gradient(#fff7fb,#fff);color:var(--ink);min-height:100vh}
+main{width:min(920px,calc(100% - 24px));margin:auto;padding:24px 0 50px} .brand{text-align:center;color:var(--pd);font-weight:900;font-size:13px}
+.hero{text-align:center;padding:25px 5px} h1{font-size:clamp(29px,6vw,45px);margin:8px 0;letter-spacing:-.04em} .hero p{color:var(--muted);margin:0}
+.card{background:white;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 15px 40px #be185d12}
+.screen{display:none}.screen.on{display:block} label{font-weight:800;font-size:13px;display:block;margin:0 0 7px} .field{margin:0 0 16px}
+select,input{width:100%;height:50px;border:1px solid #ead7e0;border-radius:15px;padding:0 14px;font-size:16px;outline:none}
+select:focus,input:focus{border-color:#f472b6;box-shadow:0 0 0 4px #f472b61f}
+.name{min-height:59px;border:1px dashed #efbfd5;background:#fff8fb;border-radius:15px;padding:12px 14px} .name small{color:#999} .name b{display:block;margin-top:4px}
+button.main{width:100%;height:50px;border:0;border-radius:15px;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;font-weight:900;font-size:15px} button:disabled{opacity:.45}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:14px} .back{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-weight:800} .who{margin-left:auto;text-align:right;font-size:12px} .who b{display:block}
+.books{display:grid;grid-template-columns:1fr 1fr;gap:16px} .book{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;cursor:pointer} .book:hover,.lesson:hover{border-color:#f6a5cb;box-shadow:0 10px 25px #be185d12}
+.cover{width:58px;height:74px;background:linear-gradient(145deg,#f472b6,#be185d);border-radius:9px;box-shadow:6px 6px #fce7f3;margin-bottom:14px} .book h2{margin:0 0 5px} .book p{margin:0;color:var(--muted);font-size:13px}
+.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:11px} .lesson{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;min-height:105px} .lesson small{color:var(--pd);font-weight:900} .lesson h3{margin:8px 0 0;font-size:18px}
+footer{text-align:center;color:#aaa;font-size:11px;margin-top:22px}
+@media(max-width:650px){main{padding-top:12px}.books{grid-template-columns:1fr}.lessons{grid-template-columns:1fr 1fr}.card{padding:16px}}
+</style></head><body><main>
+<div class="brand">🌸 NGUYÊN NÈ · TIẾNG TRUNG</div>
 
-  <section id="loginScreen" class="screen active">
-    <div class="hero">
-      <h1>Tiếng Trung Quốc cơ sở</h1>
-      <p>Chọn lớp, nhập mã sinh viên và bắt đầu học.</p>
-    </div>
-    <div class="card">
-      <h2 class="step-title">Vào lớp học</h2>
-      <div class="step-sub">Hệ thống sẽ tự động nhận diện họ tên khi mã sinh viên chính xác.</div>
+<section id="login" class="screen on"><div class="hero"><h1>Tiếng Trung Quốc cơ sở</h1><p>Chọn lớp, nhập mã sinh viên và bắt đầu học.</p></div>
+<div class="card"><h2>Vào lớp học</h2>
+<div class="field"><label>1. Chọn lớp</label><select id="cls"><option value="">-- Chọn lớp --</option><option>TT 20-13</option></select></div>
+<div class="field"><label>2. Mã sinh viên</label><input id="sid" inputmode="numeric" maxlength="10" placeholder="Nhập mã sinh viên"></div>
+<div class="field"><label>3. Họ và tên</label><div class="name"><small>Họ tên tự động hiển thị khi MSSV chính xác</small><b id="sname">—</b></div></div>
+<button class="main" id="enter" disabled>VÀO HỌC</button></div></section>
 
-      <div class="field">
-        <label for="classSelect">1. Chọn lớp</label>
-        <select id="classSelect">
-          <option value="">-- Chọn lớp --</option>
-          <option value="TT 20-13">TT 20-13</option>
-        </select>
-      </div>
+<section id="choose" class="screen"><div class="top"><button class="back" onclick="show('login')">← Quay lại</button><div class="who"><b id="who1"></b><span>TT 20-13</span></div></div>
+<div class="hero"><h1>Chọn giáo trình</h1><p>Chọn quyển bạn muốn học.</p></div><div class="books">
+<div class="book" onclick="openBook(1)"><div class="cover"></div><h2>Quyển 1</h2><p>15 bài · Bài 1 → Bài 15</p></div>
+<div class="book" onclick="openBook(2)"><div class="cover"></div><h2>Quyển 2</h2><p>10 bài · Bài 16 → Bài 25</p></div>
+</div></section>
 
-      <div class="field">
-        <label for="studentId">2. Mã sinh viên</label>
-        <input id="studentId" inputmode="numeric" maxlength="10" placeholder="Nhập mã sinh viên">
-      </div>
-
-      <div class="field">
-        <label>3. Họ và tên</label>
-        <div class="namebox" id="nameBox">
-          <div>
-            <div class="label">Họ tên sẽ tự động hiện tại đây</div>
-            <strong id="studentName">—</strong>
-          </div>
-        </div>
-      </div>
-
-      <button class="btn" id="enterBtn" disabled>VÀO HỌC</button>
-    </div>
-  </section>
-
-  <section id="bookScreen" class="screen">
-    <div class="topbar">
-      <button class="back" onclick="goLogin()">← Quay lại</button>
-      <div class="student-badge">
-        <b id="welcomeName"></b>
-        <span id="welcomeId"></span>
-      </div>
-    </div>
-    <div class="hero">
-      <h1>Chọn giáo trình</h1>
-      <p>Chọn quyển bạn muốn học.</p>
-    </div>
-    <div class="books">
-      <div class="book" onclick="openBook(1)">
-        <div class="cover"></div>
-        <h3>Quyển 1</h3>
-        <p>15 bài · Bài 1 → Bài 15</p>
-      </div>
-      <div class="book" onclick="openBook(2)">
-        <div class="cover"></div>
-        <h3>Quyển 2</h3>
-        <p>10 bài · Bài 16 → Bài 25</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="lessonScreen" class="screen">
-    <div class="topbar">
-      <button class="back" onclick="showScreen('bookScreen')">← Chọn quyển</button>
-      <div class="student-badge">
-        <b id="lessonStudentName"></b>
-        <span>TT 20-13</span>
-      </div>
-    </div>
-    <div class="hero">
-      <h1 id="bookTitle">Quyển 1</h1>
-      <p id="bookSubtitle">Chọn bài học.</p>
-    </div>
-    <div class="lessons" id="lessonGrid"></div>
-  </section>
-
-  <div class="footer">© 2026 Nguyên nè · Tiếng Trung Quốc cơ sở</div>
-</div>
-
+<section id="lessons" class="screen"><div class="top"><button class="back" onclick="show('choose')">← Chọn quyển</button><div class="who"><b id="who2"></b><span>TT 20-13</span></div></div>
+<div class="hero"><h1 id="bookname"></h1><p>Chọn bài để mở nguyên nội dung bài học.</p></div><div class="lessons" id="grid"></div></section>
+<footer>© 2026 Nguyên nè · Tiếng Trung Quốc cơ sở</footer></main>
 <script>
-const CLASS_DATA = {"TT 20-13": [{"id": "2077020058", "name": "Nguyễn Hải Anh"}, {"id": "2077020010", "name": "Nguyễn Tuấn Anh"}, {"id": "2077020085", "name": "Lê Thị Ngọc Ánh"}, {"id": "2077020097", "name": "Lê Ngọc Cẩm"}, {"id": "2077020113", "name": "Mai Quỳnh Chi"}, {"id": "2077020139", "name": "Bùi Hồng Diệu"}, {"id": "2077020152", "name": "Lê Tuấn Dương"}, {"id": "2077020149", "name": "Nguyễn Minh Dương"}, {"id": "1977020204", "name": "Nguyễn Tiến Đạt"}, {"id": "2077020173", "name": "Đinh Thị Thanh Hà"}, {"id": "2077020177", "name": "Nguyễn Việt Hà"}, {"id": "2077020171", "name": "Trần Ngọc Hà"}, {"id": "2077020200", "name": "Vũ Minh Hảo"}, {"id": "2077020207", "name": "Nguyễn Thị Hiền"}, {"id": "2077020230", "name": "Nguyễn Thị Ánh Hồng"}, {"id": "2077020235", "name": "Nguyễn Thị Huệ"}, {"id": "2077020254", "name": "Nguyễn Công Gia Huy"}, {"id": "2077020261", "name": "Trần Thanh Huyền"}, {"id": "2077020244", "name": "Đỗ Thị Hương"}, {"id": "2077020282", "name": "Nguyễn Thị Ngọc Khánh"}, {"id": "2077020277", "name": "Vũ Thị Kim Khánh"}, {"id": "2077020295", "name": "Nguyễn Hương Lan"}, {"id": "1977020649", "name": "Lại Phương Linh"}, {"id": "2077020337", "name": "Nguyễn Hà Linh"}, {"id": "2077020339", "name": "Nguyễn Thị Linh"}, {"id": "2077020345", "name": "Phan Thị Chúc Linh"}, {"id": "2077020366", "name": "Bùi Khánh Luyên"}, {"id": "2077020376", "name": "Đỗ Thị Ly"}, {"id": "2077020511", "name": "Phạm Minh Quân"}, {"id": "2077020515", "name": "Nguyễn Thị Hồng Quyên"}, {"id": "2077020558", "name": "Vũ Thị Thảo"}, {"id": "2077020588", "name": "Lò Quốc Thuận"}, {"id": "2077020680", "name": "Lê Anh Việt"}, {"id": "2077020694", "name": "Nguyễn Hà Vy"}, {"id": "2077020690", "name": "Nguyễn Thị Vy"}, {"id": "2077020688", "name": "Trương Thị Thảo Vy"}, {"id": "2077020705", "name": "Mông Hoàng Yến"}]};
-const BOOKS = {
-  1: ["你好", "汉语不太难", "明天见", "你去哪儿", "这是王老师", "我学习汉语", "你吃什么", "苹果一斤多少", "我换人民币", "他住哪儿", "我们都是留学生", "你在哪儿学习汉语", "这是不是中药", "你的车是新的还是旧的", "你家有几口人"],
-  2: ["你常去图书馆吗", "他在做什么呢", "我去超市买东西", "可以试试吗", "祝你生日快乐", "我们明天七点一刻出发", "我打算请老师教我京剧", "学校里边有银行吗", "我想学太极拳", "她学得很好"]
-};
-let currentStudent = null;
-
-const classSelect = document.getElementById('classSelect');
-const studentId = document.getElementById('studentId');
-const studentName = document.getElementById('studentName');
-const nameBox = document.getElementById('nameBox');
-const enterBtn = document.getElementById('enterBtn');
-
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function lookupStudent(){
-  const cls = classSelect.value;
-  const id = studentId.value.trim();
-  currentStudent = null;
-  nameBox.classList.remove('error');
-  studentName.textContent = '—';
-  enterBtn.disabled = true;
-
-  if(!cls || !id) return;
-  const found = (CLASS_DATA[cls] || []).find(s => s.id === id);
-  if(found){
-    currentStudent = found;
-    studentName.textContent = found.name;
-    enterBtn.disabled = false;
-  } else if(id.length >= 10){
-    studentName.textContent = 'Không tìm thấy mã sinh viên trong lớp này';
-    nameBox.classList.add('error');
-  }
-}
-
-classSelect.addEventListener('change', lookupStudent);
-studentId.addEventListener('input', e => {
-  e.target.value = e.target.value.replace(/\D/g,'');
-  lookupStudent();
-});
-
-enterBtn.addEventListener('click', ()=>{
-  if(!currentStudent) return;
-  document.getElementById('welcomeName').textContent = currentStudent.name;
-  document.getElementById('welcomeId').textContent = currentStudent.id + ' · TT 20-13';
-  document.getElementById('lessonStudentName').textContent = currentStudent.name;
-  showScreen('bookScreen');
-});
-
-function goLogin(){
-  showScreen('loginScreen');
-}
-
-function openBook(bookNo){
-  const titles = BOOKS[bookNo];
-  document.getElementById('bookTitle').textContent = 'Quyển ' + bookNo;
-  document.getElementById('bookSubtitle').textContent =
-    bookNo === 1 ? 'Bài 1 đến Bài 15' : 'Bài 16 đến Bài 25';
-  const grid = document.getElementById('lessonGrid');
-  grid.innerHTML = titles.map((title,idx)=>{
-    const realNo = bookNo === 1 ? idx+1 : idx+16;
-    return `
-      <div class="lesson" onclick="alert('Bài ${realNo} sẽ được bổ sung nội dung học ở bước tiếp theo.')">
-        <div class="lesson-num">Bài ${realNo}</div>
-        <h4>${title}</h4>
-        <div class="soon">Chạm để mở bài</div>
-      </div>`;
-  }).join('');
-  showScreen('lessonScreen');
-}
-</script>
-</body>
-</html>
+const STUDENTS=[{"id": "2077020058", "name": "Nguyễn Hải Anh"}, {"id": "2077020010", "name": "Nguyễn Tuấn Anh"}, {"id": "2077020085", "name": "Lê Thị Ngọc Ánh"}, {"id": "2077020097", "name": "Lê Ngọc Cẩm"}, {"id": "2077020113", "name": "Mai Quỳnh Chi"}, {"id": "2077020139", "name": "Bùi Hồng Diệu"}, {"id": "2077020152", "name": "Lê Tuấn Dương"}, {"id": "2077020149", "name": "Nguyễn Minh Dương"}, {"id": "1977020204", "name": "Nguyễn Tiến Đạt"}, {"id": "2077020173", "name": "Đinh Thị Thanh Hà"}, {"id": "2077020177", "name": "Nguyễn Việt Hà"}, {"id": "2077020171", "name": "Trần Ngọc Hà"}, {"id": "2077020200", "name": "Vũ Minh Hảo"}, {"id": "2077020207", "name": "Nguyễn Thị Hiền"}, {"id": "2077020230", "name": "Nguyễn Thị Ánh Hồng"}, {"id": "2077020235", "name": "Nguyễn Thị Huệ"}, {"id": "2077020254", "name": "Nguyễn Công Gia Huy"}, {"id": "2077020261", "name": "Trần Thanh Huyền"}, {"id": "2077020244", "name": "Đỗ Thị Hương"}, {"id": "2077020282", "name": "Nguyễn Thị Ngọc Khánh"}, {"id": "2077020277", "name": "Vũ Thị Kim Khánh"}, {"id": "2077020295", "name": "Nguyễn Hương Lan"}, {"id": "1977020649", "name": "Lại Phương Linh"}, {"id": "2077020337", "name": "Nguyễn Hà Linh"}, {"id": "2077020339", "name": "Nguyễn Thị Linh"}, {"id": "2077020345", "name": "Phan Thị Chúc Linh"}, {"id": "2077020366", "name": "Bùi Khánh Luyên"}, {"id": "2077020376", "name": "Đỗ Thị Ly"}, {"id": "2077020511", "name": "Phạm Minh Quân"}, {"id": "2077020515", "name": "Nguyễn Thị Hồng Quyên"}, {"id": "2077020558", "name": "Vũ Thị Thảo"}, {"id": "2077020588", "name": "Lò Quốc Thuận"}, {"id": "2077020680", "name": "Lê Anh Việt"}, {"id": "2077020694", "name": "Nguyễn Hà Vy"}, {"id": "2077020690", "name": "Nguyễn Thị Vy"}, {"id": "2077020688", "name": "Trương Thị Thảo Vy"}, {"id": "2077020705", "name": "Mông Hoàng Yến"}]; const BOOKS={"1": [{"no": 1, "title": "你好", "url": "Q1/bai1_nhap_mon_vocab_review.html"}, {"no": 2, "title": "汉语不太难", "url": "Q1/bai2_vocab_review.html"}, {"no": 3, "title": "明天见", "url": "Q1/bai3_vocab_review.html"}, {"no": 4, "title": "你去哪儿", "url": "Q1/bai4_vocab_review (2).html"}, {"no": 5, "title": "这是王老师", "url": "Q1/bai5_vocab_review.html"}, {"no": 6, "title": "我学习汉语", "url": "Q1/bai6_vocab_review.html"}, {"no": 7, "title": "你吃什么", "url": "Q1/bai7_vocab_review.html"}, {"no": 8, "title": "苹果一斤多少", "url": "Q1/bai8_vocab_review.html"}, {"no": 9, "title": "我换人民币", "url": "Q1/bai9_vocab_review.html"}, {"no": 10, "title": "他住哪儿", "url": "Q1/bai10_vocab_review.html"}, {"no": 11, "title": "我们都是留学生", "url": "Q1/bai11_vocab_review.html"}, {"no": 12, "title": "你在哪儿学习汉语", "url": "Q1/bai12_vocab_review.html"}, {"no": 13, "title": "这是不是中药", "url": "Q1/bai13_vocab_review.html"}, {"no": 14, "title": "你的车是新的还是旧的", "url": "Q1/bai14_vocab_review.html"}, {"no": 15, "title": "你家有几口人", "url": "Q1/bai15_vocab_review.html"}], "2": [{"no": 16, "title": "你常去图书馆吗", "url": "Q2/bai16_vocab_review.html"}, {"no": 17, "title": "他在做什么呢", "url": "Q2/bai17_vocab_review.html"}, {"no": 18, "title": "我去超市买东西", "url": "Q2/bai18_vocab_review.html"}, {"no": 19, "title": "可以试试吗", "url": "Q2/bai19_vocab_review.html"}, {"no": 20, "title": "祝你生日快乐", "url": "Q2/bai20_vocab_review.html"}, {"no": 21, "title": "我们明天七点一刻出发", "url": "Q2/bai21_vocab_review.html"}, {"no": 22, "title": "我打算请老师教我京剧", "url": "Q2/bai22_vocab_review.html"}, {"no": 23, "title": "学校里边有银行吗", "url": "Q2/bai23_vocab_review.html"}, {"no": 24, "title": "我想学太极拳", "url": "Q2/bai24_vocab_review.html"}, {"no": 25, "title": "她学得很好", "url": "Q2/bai25_vocab_review.html"}]}; let current=null;
+const cls=document.getElementById('cls'),sid=document.getElementById('sid'),sname=document.getElementById('sname'),enter=document.getElementById('enter');
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');scrollTo(0,0)}
+function check(){current=null;sname.textContent='—';enter.disabled=true;if(cls.value!=='TT 20-13')return;let x=STUDENTS.find(s=>s.id===sid.value.trim());if(x){current=x;sname.textContent=x.name;enter.disabled=false}else if(sid.value.length===10)sname.textContent='Không tìm thấy mã sinh viên trong lớp này'}
+sid.oninput=e=>{e.target.value=e.target.value.replace(/\D/g,'');check()};cls.onchange=check;
+enter.onclick=()=>{if(!current)return;document.getElementById('who1').textContent=current.name;document.getElementById('who2').textContent=current.name;show('choose')};
+function openBook(n){document.getElementById('bookname').textContent='Quyển '+n;document.getElementById('grid').innerHTML=BOOKS[n].map(b=>`<a class="lesson" href="${encodeURI(b.url)}"><small>BÀI ${b.no}</small><h3>${b.title}</h3></a>`).join('');show('lessons')}
+</script></body></html>
